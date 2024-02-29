@@ -2,7 +2,7 @@
 
 import math
 
-a = [
+functions = [
     "sin",
     "cos",
     "tan",
@@ -29,7 +29,7 @@ def evaluate_expression(expression, x_value, y_value, z_value):
         .replace("z", str(z_value))
     )
 
-    for i in a:
+    for i in functions:
         expression = expression.replace(i, "math." + i)
 
     # Evaluate the expression
