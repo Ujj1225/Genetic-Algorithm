@@ -11,7 +11,7 @@ window.title("Calculator")
 def solve():
     exp = entry.get()
 
-    # Calculate Fitness
+    # Calculate Fitnes
     def fitness(x, y, z):
         ans = evaluate_expression(exp, x, y, z)
         return abs(1 / ans)
@@ -52,7 +52,7 @@ def solve():
         avgfitness.append(sum(fitnesses) / len(fitnesses))
 
         if x.get() == 1:
-            plot(generation, avgfitness, fitnesses)  # Plot Graph
+            plot(generation, fitnesses, avgfitness)  # Plot Graph
 
         if rankedsolutions[0][0] > 99999:  # If fitness exceeds 99999 end the program
             break
@@ -95,18 +95,18 @@ def solve():
     lable_generation.grid(column=0)
     lable_best_fitness.grid(column=0)
     if "x" in exp:
-        lable1 = Label(window, text="x: " + str(round(max(best)[1][0], 5)))
+        lable1 = Label(window, text="x: " + str(round(max(best)[1][0], 3)))
         lable1.grid(row=grid_size[1], column=1)
     if "y" in exp:
-        lable2 = Label(window, text="y: " + str(round(max(best)[1][1], 5)))
+        lable2 = Label(window, text="y: " + str(round(max(best)[1][1], 3)))
         lable2.grid(row=grid_size[1] + 1, column=1)
     if "z" in exp:
-        lable3 = Label(window, text="z: " + str(round(max(best)[1][2], 5)))
+        lable3 = Label(window, text="z: " + str(round(max(best)[1][2], 3)))
         lable3.grid(row=grid_size[1] + 2, column=1)
 
     lable_error = Label(
         window,
-        text="Error: " + str(round(1 / rankedsolutions[0][0], 5)),
+        text="Error: " + str(round(1 / rankedsolutions[0][0], 3)),
     )
     lable_error.grid(row=grid_size[1], column=2)
 
